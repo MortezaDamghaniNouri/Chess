@@ -39,7 +39,7 @@ public Player(String color){
 public void setWinner(){
     result = "winner";
 }
-public ArrayList<ChessMan> getList(){
+public ArrayList<Bead> getList(){
     return pieces;
 }
 
