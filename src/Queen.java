@@ -1,4 +1,4 @@
-public class Queen extends ChessMan {
+public class Queen extends Bead {
 
     public Queen(boolean existence, int x, int y, int i) {
         super(existence, x, y, i);

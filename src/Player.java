@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class Player {
 
 private String color;
-private ArrayList <ChessMan> pieces = new ArrayList<>();
+private ArrayList <Bead> pieces = new ArrayList<>();
 private String result;
 public Player(String color){
   this.color = color;
