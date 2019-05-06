@@ -1,4 +1,4 @@
-public class Rook extends ChessMan {
+public class Rook extends Bead {
 
     public Rook(boolean existence, int x, int y, int i) {
         super(existence, x, y, i);
