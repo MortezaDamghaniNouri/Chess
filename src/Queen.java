@@ -1,7 +1,7 @@
-public class Queen extends Bead {
+public class Queen extends Piece {
 
-    public Queen(boolean existence, int x, int y, int i) {
-        super(existence, x, y, i);
+    public Queen(boolean existence, int x, int y,String c,int i) {
+        super(existence, x, y,c,i);
     }
 
     @Override

@@ -1,8 +1,46 @@
 import java.util.ArrayList;
 public class Player {
 
-private String color;
-private ArrayList <Bead> pieces = new ArrayList<>();
+    private String name;
+    private String color;
+    public Player(String n,String c)
+    {
+        name=n;
+        color=c;
+    }
+    public String getName()
+    {
+        return name;
+    }
+    public String getColor()
+    {
+        return color;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*private ArrayList <Bead> pieces = new ArrayList<>();
 private String result;
 public Player(String color){
   this.color = color;
@@ -41,6 +79,6 @@ public void setWinner(){
 }
 public ArrayList<Bead> getList(){
     return pieces;
-}
+}*/
 
 }
