@@ -5,10 +5,10 @@ public class Main {
     {
         Scanner input=new Scanner(System.in);
         String name;
-        System.out.println("Enter the name of first(white) player.");
+        System.out.println("Enter the name of first(white) player:");
         name=input.next();
         Player player1=new Player(name,"white");
-        System.out.println("Enter the name of second(black) player.");
+        System.out.println("Enter the name of second(black) player:");
         name=input.next();
         Player player2=new Player(name,"black");
         Place field[][]=new Place[8][8];
@@ -45,7 +45,7 @@ public class Main {
         Queen whiteQueen=new Queen(true,3,0,"white",1);
         field[0][3].setPiece(whiteQueen);
         whitePieces.add(whiteQueen);
-        King whiteKing=new King(true,4,0,"white",1);
+        King whiteKing=new King(true,4,0,"white",1000);
         field[0][4].setPiece(whiteKing);
         whitePieces.add(whiteKing);
         Pawn whitePawn1=new Pawn(true,0,1,"white",11);
@@ -97,7 +97,7 @@ public class Main {
         Queen blackQueen=new Queen(true,3,7,"black",2);
         field[7][3].setPiece(blackQueen);
         blackPieces.add(blackQueen);
-        King blackKing=new King(true,4,7,"black",2);
+        King blackKing=new King(true,4,7,"black",2000);
         field[7][4].setPiece(blackKing);
         blackPieces.add(blackKing);
         Pawn blackPawn1=new Pawn(true,0,6,"black",21);
@@ -125,20 +125,56 @@ public class Main {
         field[6][7].setPiece(blackPawn8);
         blackPieces.add(blackPawn8);
         //****
+        //*****
+        int blackCheckNumber=0,whiteCheckNumber=0;
         for(int i=1;;++i)
         {
             if(i%2==1)
             {
-                System.out.println("white turn:\nchoose piece which you want to move: (example:a1)");
+                System.out.println("==========\nwhite turn:\nchoose piece which you want to move: (example:a1)");
                 String choose=input.next();
                 System.out.println("choose place which you want to put: (example:a2)");
                 String put=input.next();
-                if(chooseAndPut(choose,put,field))
+                if(whiteCheckNumber==1)
                 {
+                    if(chooseAndPut(choose,put,field,i))
+                    {
+                        System.out.println("it is done.");
+                    }
+                    else
+                    {
+                        System.out.println("again");
+                        i=i-1;
+                        continue;
+                    }
+                    if(isWhiteAtRisk(blackPieces,field))
+                    {
+                        System.out.println("**********\nGAME IS OVER.\n"+player2.getName()+"(black) WON THE GAME.\n**********");
+                        break;
+                    }
+                    else
+                    {
+                        whiteCheckNumber=0;
+                        continue;
+                    }
+
+
+                }
+                if(chooseAndPut(choose,put,field,i))
+                {
+                    System.out.println("it is done.");
+                    if(isBlackAtRisk(whitePieces,field))
+                    {
+                        System.out.println("*****************************************BLACK IS AT RISK.(CHECK)*****************************************");
+                        ++blackCheckNumber;
+
+
+                    }
                     continue;
                 }
                 else
                 {
+                    System.out.println("again");
                     i=i-1;
                     continue;
                 }
@@ -146,16 +182,50 @@ public class Main {
             }
             if(i%2==0)
             {
-                System.out.println("black turn:\nchoose piece which you want to move: (example:a1)");
+                System.out.println("==========\nblack turn:\nchoose piece which you want to move: (example:a1)");
                 String choose=input.next();
                 System.out.println("choose place which you want to put: (example:a2)");
                 String put=input.next();
-                if(chooseAndPut(choose,put,field))
+                if(blackCheckNumber==1)
                 {
+                    if(chooseAndPut(choose,put,field,i))
+                    {
+                        System.out.println("it is done.");
+                    }
+                    else
+                    {
+                        System.out.println("again");
+                        i=i-1;
+                        continue;
+                    }
+                    if(isBlackAtRisk(whitePieces,field))
+                    {
+                        System.out.println("**********\nGAME IS OVER.\n"+player1.getName()+"(white) WON THE GAME.\n**********");
+                        break;
+                    }
+                    else
+                    {
+                        blackCheckNumber=0;
+                        continue;
+                    }
+
+
+                }
+                if(chooseAndPut(choose,put,field,i))
+                {
+                    System.out.println("it is done.");
+                    if(isWhiteAtRisk(blackPieces,field))
+                    {
+                        System.out.println("*****************************************WHITE IS AT RISK.(CHECK)*****************************************");
+                        ++whiteCheckNumber;
+
+
+                    }
                     continue;
                 }
                 else
                 {
+                    System.out.println("again");
                     i=i-1;
                     continue;
                 }
@@ -172,7 +242,7 @@ public class Main {
 
 
         }
-
+        System.out.println("============\nGAME FINISHED.\n============");
 
 
 
@@ -180,7 +250,7 @@ public class Main {
 
     }
 
-    private static boolean chooseAndPut(String choose,String put,Place field[][])
+    private static boolean chooseAndPut(String choose,String put,Place field[][],int turn)
     {
         char c11=choose.charAt(0);
         char c12=choose.charAt(1);
@@ -510,7 +580,7 @@ public class Main {
             }
 
         }
-        if(c11=='f')
+        if(c11=='h')
         {
             j1=7;
             result12=1;
@@ -938,11 +1008,15 @@ public class Main {
         }
         else
         {
+            System.out.println("(i1="+i1+"  j1="+j1+"  i2="+i2+"  j2="+j2+")");
             Place choseSquare=field[i1][j1];
-            if(choseSquare.getPiece()==null)return false;
+            if(choseSquare.getPiece()==null){
+                System.out.println("NULL");return false;}
             else
             {
+                if((turn%2==1&&choseSquare.getPiece().getColor().equals("white"))||(turn%2==0&&choseSquare.getPiece().getColor().equals("black")))
                 return choseSquare.getPiece().move(j1,i1,j2,i2,field);
+                else return false;
             }
 
         }
@@ -952,393 +1026,46 @@ public class Main {
     }
 
 
-
-
-
-
-
-
-
-
-
-    /*public static void main(String[] args) {
-        Player w = new Player("white");
-        Player b = new Player("black");
-        int flag = 0;
-        ArrayList<Bead> wPieces = w.getList();
-        ArrayList<Bead> bPieces = b.getList();
-        Place[][] field = new Place[8][8];
-        Scanner s = new Scanner(System.in);
-        for (int i = 0; i <= 7; i++) {
-            for (int j = 0; j <= 7; j++) {
-                field[i][j] = new Place(i, j);
+    private static boolean isBlackAtRisk(ArrayList<Piece> whitePieces,Place field[][])
+    {
+        Piece temp;
+        for(int i=0;i<=15;++i)
+        {
+            temp=whitePieces.get(i);
+            if(temp.getExistence()&&temp.check(temp.getX(),temp.getY(),field))
+            {
+                return true;
             }
+
+
         }
-        for (int j = 0; j < 7; j++)
-            field[j][1].setPiece(wPieces.get(j));
+        return false;
 
-        field[0][0].setPiece(wPieces.get(8));
-        field[7][0].setPiece(wPieces.get(9));
-        field[6][0].setPiece(wPieces.get(10));
-        field[1][0].setPiece(wPieces.get(11));
-        field[5][0].setPiece(wPieces.get(12));
-        field[2][0].setPiece(wPieces.get(13));
-        field[3][0].setPiece(wPieces.get(14));
-        field[4][0].setPiece(wPieces.get(15));
-
-        for (int j = 0; j < 7; j++)
-            field[j][6].setPiece(bPieces.get(j));
-
-        field[0][7].setPiece(bPieces.get(8));
-        field[7][7].setPiece(bPieces.get(9));
-        field[6][7].setPiece(bPieces.get(10));
-        field[1][7].setPiece(bPieces.get(11));
-        field[5][7].setPiece(bPieces.get(12));
-        field[2][7].setPiece(bPieces.get(13));
-        field[3][7].setPiece(bPieces.get(14));
-        field[4][7].setPiece(bPieces.get(15));
-        String piece;
-        while (true) {
-            if (flag == 0) {
-                piece = s.next();
-
-                if (wPieces.get(15).check(bPieces, field) == true) {
-
-                    while (true) {
-                        int x = s.nextInt();
-                        int y = s.nextInt();
-                        if (wPieces.get(15).myCheck(x, y, bPieces, field) == true)
-                            break;
-
-                        else if (wPieces.get(15).move(wPieces.get(15).getX(), wPieces.get(15).getY(), x, y, field) == true) {
-                            if (field[x][y].getPiece() != null) {
-                                field[x][y].getPiece().setExistence(false);
-                                bPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                field[wPieces.get(15).getX()][wPieces.get(15).getY()].freePiece();
-                            }
-
-                            wPieces.get(15).setX(x);
-                            wPieces.get(15).setY(y);
-                            field[x][y].setPiece(wPieces.get(15));
-                        } else
-                            System.out.printf("Invalid spot");
-
-                    }
-                } else {
-                    int x = s.nextInt();
-                    int y = s.nextInt();
-                    char i = piece.charAt(1);
-                    if ("p" + i == piece) {
-                        if (wPieces.get(i).move(wPieces.get(i).getX(), wPieces.get(i).getY(), x, y, field) == true) {
-                            if (field[x][y].getPiece() != null) {
-                                field[x][y].getPiece().setExistence(false);
-                                bPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                field[wPieces.get(i).getX()][wPieces.get(i).getY()].freePiece();
-                            }
-                            if(wPieces.get(i).getY() == 7){
-                                String rescue = s.next();
-                                int j = rescue.charAt(1);
-                                if ("p" + j == piece)
-                                {
-                                    wPieces.get(j).setExistence(true);
-                                    int X = s.nextInt();
-                                    int Y = s.nextInt();
-                                    wPieces.get(j).setX(X);
-                                    wPieces.get(j).setX(Y);
-                                    field[X][Y].setPiece(wPieces.get(j));
-                                }
-                                if ("r" + j == piece)
-                                {
-                                    wPieces.get(j).setExistence(true);
-                                    int X = s.nextInt();
-                                    int Y = s.nextInt();
-                                    wPieces.get(j).setX(X);
-                                    wPieces.get(j).setX(Y);
-                                    field[X][Y].setPiece(wPieces.get(j));
-
-                                }
-                                if("kn" + j == piece){
-
-                                    wPieces.get(j).setExistence(true);
-                                    int X = s.nextInt();
-                                    int Y = s.nextInt();
-                                    wPieces.get(j).setX(X);
-                                    wPieces.get(j).setX(Y);
-                                    field[X][Y].setPiece(wPieces.get(j));
-                                }
-                                if("b" + j == piece){
-                                    wPieces.get(j).setExistence(true);
-                                    int X = s.nextInt();
-                                    int Y = s.nextInt();
-                                    wPieces.get(j).setX(X);
-                                    wPieces.get(j).setX(Y);
-                                    field[X][Y].setPiece(wPieces.get(j));
-                                }
-                                if("Q" == piece){
-                                    wPieces.get(14).setExistence(true);
-                                    int X = s.nextInt();
-                                    int Y = s.nextInt();
-                                    wPieces.get(j).setX(X);
-                                    wPieces.get(j).setX(Y);
-                                    field[X][Y].setPiece(wPieces.get(j));
-
-                                }
-
-
-                            }
-                            wPieces.get(i).setX(x);
-                            wPieces.get(i).setY(y);
-                            field[x][y].setPiece(wPieces.get(i));
-                        } else
-                            System.out.printf("Invalid spot");
-                    }
-                    if ("r" + i == piece) {
-                        if (wPieces.get(i + 8).move(wPieces.get(i + 8).getX(), wPieces.get(i + 8).getY(), x, y, field) == true) {
-                            if (field[x][y].getPiece() != null) {
-                                field[x][y].getPiece().setExistence(false);
-                                bPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                field[wPieces.get(i + 8).getX()][wPieces.get(i + 8).getY()].freePiece();
-                            }
-
-                            wPieces.get(i + 8).setX(x);
-                            wPieces.get(i + 8).setY(y);
-                            field[x][y].setPiece(wPieces.get(i + 8));
-                        } else
-                            System.out.printf("Invalid spot");
-                    }
-                    if ("b" + i == piece) {
-                        if (wPieces.get(i + 10).move(wPieces.get(i + 10).getX(), wPieces.get(i + 10).getY(), x, y, field) == true) {
-                            if (field[x][y].getPiece() != null) {
-                                field[x][y].getPiece().setExistence(false);
-                                bPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                field[wPieces.get(i + 10).getX()][wPieces.get(i + 10).getY()].freePiece();
-                            }
-
-                            wPieces.get(i + 10).setX(x);
-                            wPieces.get(i + 10).setY(y);
-                            field[x][y].setPiece(wPieces.get(i + 10));
-                        } else
-                            System.out.printf("Invalid spot");
-                    }
-                    if ("kn" + i == piece) {
-                        if (wPieces.get(i + 12).move(wPieces.get(i + 12).getX(), wPieces.get(i + 12).getY(), x, y, field) == true) {
-                            if (field[x][y].getPiece() != null) {
-                                field[x][y].getPiece().setExistence(false);
-                                bPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                field[wPieces.get(i + 12).getX()][wPieces.get(i + 12).getY()].freePiece();
-                            }
-
-                            wPieces.get(i + 12).setX(x);
-                            wPieces.get(i + 12).setY(y);
-                            field[x][y].setPiece(wPieces.get(i + 12));
-                        } else
-                            System.out.printf("Invalid spot");
-                    }
-                    if ("Q" == piece) {
-                        if (wPieces.get(14).move(wPieces.get(14).getX(), wPieces.get(14).getY(), x, y, field) == true) {
-                            if (field[x][y].getPiece() != null) {
-                                field[x][y].getPiece().setExistence(false);
-                                bPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                field[wPieces.get(14).getX()][wPieces.get(14).getY()].freePiece();
-                            }
-
-                            wPieces.get(14).setX(x);
-                            wPieces.get(14).setY(y);
-                            field[x][y].setPiece(wPieces.get(14));
-                        } else
-                            System.out.printf("Invalid spot");
-                    }
-                    if ("k" == piece) {
-                        if (wPieces.get(15).move(wPieces.get(15).getX(), wPieces.get(15).getY(), x, y, field) == true) {
-                            if (field[x][y].getPiece() != null) {
-                                field[x][y].getPiece().setExistence(false);
-                                bPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                field[wPieces.get(15).getX()][wPieces.get(15).getY()].freePiece();
-                            }
-
-                            wPieces.get(15).setX(x);
-                            wPieces.get(15).setY(y);
-                            field[x][y].setPiece(wPieces.get(15));
-                        } else
-                            System.out.printf("Invalid spot");
-                    }
-
-                }
-                flag = 1;
-
-
-                if (flag == 1) {
-
-                    piece = s.next();
-
-                    if (bPieces.get(15).check(wPieces, field) == true) {
-
-                        while (true) {
-                            int x = s.nextInt();
-                            int y = s.nextInt();
-                            if (bPieces.get(15).myCheck(x, y, wPieces, field) == true)
-                                break;
-
-                            else if (bPieces.get(15).move(bPieces.get(15).getX(), bPieces.get(15).getY(), x, y, field) == true) {
-                                if (field[x][y].getPiece() != null) {
-                                    field[x][y].getPiece().setExistence(false);
-                                    wPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                    field[bPieces.get(15).getX()][bPieces.get(15).getY()].freePiece();
-                                }
-
-
-                                bPieces.get(15).setX(x);
-                                bPieces.get(15).setY(y);
-                                field[x][y].setPiece(bPieces.get(15));
-                            } else
-                                System.out.printf("Invalid spot");
-
-                        }
-                    } else {
-
-                        int x = s.nextInt();
-                        int y = s.nextInt();
-                        char i = piece.charAt(1);
-
-                        if ("p" + i == piece) {
-                            if (bPieces.get(i).move(bPieces.get(i).getX(), bPieces.get(i).getY(), x, y, field) == true) {
-                                if (field[x][y].getPiece() != null) {
-                                    field[x][y].getPiece().setExistence(false);
-                                    wPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                    field[bPieces.get(i).getX()][bPieces.get(i).getY()].freePiece();
-                                }
-
-                                if(bPieces.get(i).getY() == 7) {
-                                    String rescue = s.next();
-                                    int j = rescue.charAt(1);
-                                    if ("p" + j == piece) {
-                                        bPieces.get(j).setExistence(true);
-                                        int X = s.nextInt();
-                                        int Y = s.nextInt();
-                                        bPieces.get(j).setX(X);
-                                        bPieces.get(j).setX(Y);
-                                        field[X][Y].setPiece(bPieces.get(j));
-                                    }
-                                    if ("r" + j == piece) {
-                                        bPieces.get(j).setExistence(true);
-                                        int X = s.nextInt();
-                                        int Y = s.nextInt();
-                                        bPieces.get(j).setX(X);
-                                        bPieces.get(j).setX(Y);
-                                        field[X][Y].setPiece(bPieces.get(j));
-
-                                    }
-                                    if ("kn" + j == piece) {
-
-                                        bPieces.get(j).setExistence(true);
-                                        int X = s.nextInt();
-                                        int Y = s.nextInt();
-                                        bPieces.get(j).setX(X);
-                                        bPieces.get(j).setX(Y);
-                                        field[X][Y].setPiece(bPieces.get(j));
-                                    }
-                                    if ("b" + j == piece) {
-                                        bPieces.get(j).setExistence(true);
-                                        int X = s.nextInt();
-                                        int Y = s.nextInt();
-                                        bPieces.get(j).setX(X);
-                                        bPieces.get(j).setX(Y);
-                                        field[X][Y].setPiece(bPieces.get(j));
-                                    }
-                                    if ("Q" == piece) {
-                                        bPieces.get(14).setExistence(true);
-                                        int X = s.nextInt();
-                                        int Y = s.nextInt();
-                                        bPieces.get(j).setX(X);
-                                        bPieces.get(j).setX(Y);
-                                        field[X][Y].setPiece(bPieces.get(j));
-
-                                    }
-                                }
-                                bPieces.get(i).setX(x);
-                                bPieces.get(i).setY(y);
-                                field[x][y].setPiece(bPieces.get(i));
-                            } else
-                                System.out.printf("Invalid spot");
-                        }
-                        if ("r" + i == piece) {
-                            if (bPieces.get(i + 8).move(bPieces.get(i + 8).getX(), bPieces.get(i + 8).getY(), x, y, field) == true) {
-                                if (field[x][y].getPiece() != null) {
-                                    field[x][y].getPiece().setExistence(false);
-                                    wPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                    field[bPieces.get(i + 8).getX()][bPieces.get(i + 8).getY()].freePiece();
-                                }
-
-                                bPieces.get(i + 8).setX(x);
-                                bPieces.get(i + 8).setY(y);
-                                field[x][y].setPiece(bPieces.get(i + 8));
-                            } else
-                                System.out.printf("Invalid spot");
-                        }
-                        if ("b" + i == piece) {
-                            if (bPieces.get(i + 10).move(bPieces.get(i + 10).getX(), bPieces.get(i + 10).getY(), x, y, field) == true) {
-                                if (field[x][y].getPiece() != null) {
-                                    field[x][y].getPiece().setExistence(false);
-                                    wPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                    field[bPieces.get(i + 10).getX()][bPieces.get(i + 10).getY()].freePiece();
-                                }
-
-                                bPieces.get(i + 10).setX(x);
-                                bPieces.get(i + 10).setY(y);
-                                field[x][y].setPiece(bPieces.get(i + 10));
-                            } else
-                                System.out.printf("Invalid spot");
-                        }
-                        if ("kn" + i == piece) {
-                            if (bPieces.get(i + 12).move(bPieces.get(i + 12).getX(), bPieces.get(i + 12).getY(), x, y, field) == true) {
-                                if (field[x][y].getPiece() != null) {
-                                    field[x][y].getPiece().setExistence(false);
-                                    wPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                    field[bPieces.get(i + 12).getX()][bPieces.get(i + 12).getY()].freePiece();
-                                }
-
-                                bPieces.get(i + 12).setX(x);
-                                bPieces.get(i + 12).setY(y);
-                                field[x][y].setPiece(bPieces.get(i + 12));
-                            } else
-                                System.out.printf("Invalid spot");
-                        }
-                        if ("Q" == piece) {
-                            if (bPieces.get(14).move(bPieces.get(14).getX(), bPieces.get(14).getY(), x, y, field) == true) {
-                                if (field[x][y].getPiece() != null) {
-                                    field[x][y].getPiece().setExistence(false);
-                                    wPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                    field[bPieces.get(14).getX()][bPieces.get(14).getY()].freePiece();
-                                }
-
-                                bPieces.get(14).setX(x);
-                                bPieces.get(14).setY(y);
-                                field[x][y].setPiece(bPieces.get(14));
-                            } else
-                                System.out.printf("Invalid spot");
-                        }
-                        if ("k" == piece) {
-                            if (bPieces.get(15).move(bPieces.get(15).getX(), bPieces.get(15).getY(), x, y, field) == true) {
-                                if (field[x][y].getPiece() != null) {
-                                    field[x][y].getPiece().setExistence(false);
-                                    wPieces.get(field[x][y].getPiece().getIndex()).setExistence(false);
-                                    field[bPieces.get(15).getX()][bPieces.get(15).getY()].freePiece();
-                                }
-
-                                bPieces.get(15).setX(x);
-                                bPieces.get(15).setY(y);
-                                field[x][y].setPiece(bPieces.get(15));
-                            } else
-                                System.out.printf("Invalid spot");
-                        }
-                    }
-                    flag = 0;
-
-
-                }
-
-            }
-        }
     }
-    */
+    private static boolean isWhiteAtRisk(ArrayList<Piece> blackPieces,Place field[][])
+    {
+        Piece temp;
+        for(int i=0;i<=15;++i)
+        {
+            temp=blackPieces.get(i);
+            if(temp.getExistence()&&temp.check(temp.getX(),temp.getY(),field))
+            {
+                return true;
+            }
+
+
+        }
+        return false;
+
+    }
+
+
+
+
+
+
+
+
+
+
 }

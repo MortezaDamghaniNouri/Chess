@@ -4,7 +4,7 @@
  * @author Morteza Damghani
  * @version 1
  */
-public class Piece {
+public abstract class Piece {
 
     private boolean existence;
     private int x;
@@ -80,45 +80,33 @@ public class Piece {
         return true;
 
     }
+    public boolean blackKingChecker(int x,int y,Place field[][])
+    {
+        if(x>=0&&x<=7&&y>=0&&y<=7)
+        {
+            if(field[y][x].getPiece().getIndex()==2000)return true;
+            else return false;
 
-    /**
-     * it checks that if a bead can go to entered place or not.
-     * @param pieces , it is an array of all the beads.
-     * @param field ,it is the field of the game.
-     * @return true or false ,if the entered bead can go there it returns true and if it can not go there it returns false.
-     */
-    /*public boolean check(ArrayList<Bead> pieces, Place [][] field){
-        for(int i = 0;i < 16;i++) {
-            boolean result = pieces.get(i).move(pieces.get(i).getX(), pieces.get(i).getY(), getX(), getY(), field);
-            if (result == true) {
-                //pieces.get(i).getX();
-                //pieces.get(i).getY();
-                return true;
-            }
         }
-        return false;
+        else return false;
 
     }
-    */
+    public boolean whiteKingChecker(int x,int y,Place field[][])
+    {
+        if(x>=0&&x<=7&&y>=0&&y<=7)
+        {
+            if(field[y][x].getPiece().getIndex()==1000)return true;
+            else return false;
 
-    /**
-     * it checks the entered place for the bead.
-     * @param x,the place of the bead we want it to go.
-     * @param y,the place of the bead we want it to go.
-     * @param pieces,an array list of all beads.
-     * @param field, the field of the game.
-     * @return it return true or false.
-     */
-   /* public boolean myCheck(int x, int y, ArrayList<Bead> pieces, Place [][] field){
-
-        for(int i = 0;i < 16;i++) {
-            boolean result = pieces.get(i).move(pieces.get(i).getX(), pieces.get(i).getY(), x, y, field);
-            if (result == true) {
-
-                return true;
-            }
         }
-        return false;
+        else return false;
+
     }
-    */
+    abstract boolean check(int currentX,int currentY,Place field[][]);
+
+
+
+
+
+
 }

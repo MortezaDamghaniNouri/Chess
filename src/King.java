@@ -25,6 +25,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=111;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -50,6 +51,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=112;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -75,6 +77,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=113;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -100,6 +103,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=114;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -125,6 +129,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=115;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -150,6 +155,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=116;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -175,6 +181,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=117;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -200,6 +207,7 @@ public class King extends Piece {
                 }
                 else
                 {
+                    if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=118;
                     field[nextY][nextX].getPiece().setExistence(false);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
@@ -219,6 +227,40 @@ public class King extends Piece {
 
        return false;
     }
+
+
+    public boolean check(int currentX,int currentY,Place field[][])
+    {
+        Piece king=field[currentY][currentX].getPiece();
+        if(king.getColor().equals("white"))
+        {
+            if(blackKingChecker(currentX+1,currentY+1,field))return true;
+            if(blackKingChecker(currentX+1,currentY,field))return true;
+            if(blackKingChecker(currentX+1,currentY-1,field))return true;
+            if(blackKingChecker(currentX,currentY-1,field))return true;
+            if(blackKingChecker(currentX-1,currentY-1,field))return true;
+            if(blackKingChecker(currentX-1,currentY,field))return true;
+            if(blackKingChecker(currentX-1,currentY+1,field))return true;
+            if(blackKingChecker(currentX,currentY+1,field))return true;
+
+        }
+        if(king.getColor().equals("black"))
+        {
+            if(whiteKingChecker(currentX+1,currentY+1,field))return true;
+            if(whiteKingChecker(currentX+1,currentY,field))return true;
+            if(whiteKingChecker(currentX+1,currentY-1,field))return true;
+            if(whiteKingChecker(currentX,currentY-1,field))return true;
+            if(whiteKingChecker(currentX-1,currentY-1,field))return true;
+            if(whiteKingChecker(currentX-1,currentY,field))return true;
+            if(whiteKingChecker(currentX-1,currentY+1,field))return true;
+            if(whiteKingChecker(currentX,currentY+1,field))return true;
+
+        }
+
+
+        return false;
+    }
+
 
 
 
