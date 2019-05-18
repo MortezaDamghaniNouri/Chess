@@ -163,6 +163,12 @@ public class Main {
                 if(chooseAndPut(choose,put,field,i))
                 {
                     System.out.println("it is done.");
+                    if(!blackKing.getExistence())
+                    {
+                        System.out.println("**********\nGAME IS OVER.\n"+"BLACK KING IS OUT OF THE GAME.\n"+player1.getName()+"(white) WON THE GAME.\n**********");
+                        break;
+
+                    }
                     if(isBlackAtRisk(whitePieces,field))
                     {
                         System.out.println("*****************************************BLACK IS AT RISK.(CHECK)*****************************************");
@@ -214,6 +220,12 @@ public class Main {
                 if(chooseAndPut(choose,put,field,i))
                 {
                     System.out.println("it is done.");
+                    if(!whiteKing.getExistence())
+                    {
+                        System.out.println("**********\nGAME IS OVER.\n"+"WHITE KING IS OUT OF THE GAME.\n"+player2.getName()+"(black) WON THE GAME.\n**********");
+                        break;
+
+                    }
                     if(isWhiteAtRisk(blackPieces,field))
                     {
                         System.out.println("*****************************************WHITE IS AT RISK.(CHECK)*****************************************");
@@ -1032,9 +1044,44 @@ public class Main {
         for(int i=0;i<=15;++i)
         {
             temp=whitePieces.get(i);
-            if(temp.getExistence()&&temp.check(temp.getX(),temp.getY(),field))
+            if(temp.getExistence())
             {
-                return true;
+                byte w=0;
+                if(temp instanceof Queen)
+                {
+                    temp=(Queen) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Rook)
+                {
+
+                    temp=(Rook) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Bishop)
+                {
+                    temp=(Bishop) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Knight)
+                {
+                    temp=(Knight) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof King)
+                {
+                    temp=(King) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Pawn)
+                {
+                    temp=(Pawn) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+
+
+
+
             }
 
 
@@ -1048,10 +1095,46 @@ public class Main {
         for(int i=0;i<=15;++i)
         {
             temp=blackPieces.get(i);
-            if(temp.getExistence()&&temp.check(temp.getX(),temp.getY(),field))
+            if(temp.getExistence())
             {
-                return true;
+                byte t;
+                if(temp instanceof Queen)
+                {
+                    temp=(Queen) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Rook)
+                {
+                    temp=(Rook) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Bishop)
+                {
+                    temp=(Bishop) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Knight)
+                {
+                    temp=(Knight) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof King)
+                {
+                    temp=(King) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+                if(temp instanceof Pawn)
+                {
+                    temp=(Pawn) temp;
+                    if(temp.check(temp.getX(),temp.getY(),field))return true;
+                }
+
+
+
+
             }
+
+
 
 
         }

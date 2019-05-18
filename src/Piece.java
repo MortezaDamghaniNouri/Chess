@@ -13,7 +13,7 @@ public abstract class Piece {
     private int index;
 
     public Piece(boolean existence, int x, int y, String c, int i) {
-        existence = true;
+        this.existence=existence;
         this.x = x;
         this.y = y;
         color = c;
@@ -84,7 +84,7 @@ public abstract class Piece {
     {
         if(x>=0&&x<=7&&y>=0&&y<=7)
         {
-            if(field[y][x].getPiece().getIndex()==2000)return true;
+            if(field[y][x].getPiece()!=null&&field[y][x].getPiece().getIndex()==2000)return true;
             else return false;
 
         }
@@ -95,14 +95,14 @@ public abstract class Piece {
     {
         if(x>=0&&x<=7&&y>=0&&y<=7)
         {
-            if(field[y][x].getPiece().getIndex()==1000)return true;
+            if(field[y][x].getPiece()!=null&&field[y][x].getPiece().getIndex()==1000)return true;
             else return false;
 
         }
         else return false;
 
     }
-    abstract boolean check(int currentX,int currentY,Place field[][]);
+    public abstract boolean check(int currentX,int currentY,Place field[][]);
 
 
 

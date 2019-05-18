@@ -138,72 +138,73 @@ public class Rook extends Piece {
         Piece rook=field[currentY][currentX].getPiece();
         if(rook.getColor().equals("white"))
         {
-            if(betweenChecker1(currentX,currentY,currentX,currentY+1,field)&&blackKingChecker(currentX,currentY+1,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+2,field)&&blackKingChecker(currentX,currentY+2,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+3,field)&&blackKingChecker(currentX,currentY+3,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+4,field)&&blackKingChecker(currentX,currentY+4,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+5,field)&&blackKingChecker(currentX,currentY+5,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+6,field)&&blackKingChecker(currentX,currentY+6,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+7,field)&&blackKingChecker(currentX,currentY+7,field))return true;
+            if(blackKingChecker(currentX,currentY+1,field)&&betweenChecker1(currentX,currentY,currentX,currentY+1,field))return true;
+            if(blackKingChecker(currentX,currentY+2,field)&&betweenChecker1(currentX,currentY,currentX,currentY+2,field))return true;
+            if(blackKingChecker(currentX,currentY+3,field)&&betweenChecker1(currentX,currentY,currentX,currentY+3,field))return true;
+            if(blackKingChecker(currentX,currentY+4,field)&&betweenChecker1(currentX,currentY,currentX,currentY+4,field))return true;
+            if(blackKingChecker(currentX,currentY+5,field)&&betweenChecker1(currentX,currentY,currentX,currentY+5,field))return true;
+            if(blackKingChecker(currentX,currentY+6,field)&&betweenChecker1(currentX,currentY,currentX,currentY+6,field))return true;
+            if(blackKingChecker(currentX,currentY+7,field)&&betweenChecker1(currentX,currentY,currentX,currentY+7,field))return true;
 
-            if(betweenChecker2(currentX,currentY,currentX,currentY-1,field)&&blackKingChecker(currentX,currentY-1,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-2,field)&&blackKingChecker(currentX,currentY-2,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-3,field)&&blackKingChecker(currentX,currentY-3,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-4,field)&&blackKingChecker(currentX,currentY-4,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-5,field)&&blackKingChecker(currentX,currentY-5,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-6,field)&&blackKingChecker(currentX,currentY-6,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-7,field)&&blackKingChecker(currentX,currentY-7,field))return true;
+            if(blackKingChecker(currentX,currentY-1,field)&&betweenChecker2(currentX,currentY,currentX,currentY-1,field))return true;
+            if(blackKingChecker(currentX,currentY-2,field)&&betweenChecker2(currentX,currentY,currentX,currentY-2,field))return true;
+            if(blackKingChecker(currentX,currentY-3,field)&&betweenChecker2(currentX,currentY,currentX,currentY-3,field))return true;
+            if(blackKingChecker(currentX,currentY-4,field)&&betweenChecker2(currentX,currentY,currentX,currentY-4,field))return true;
+            if(blackKingChecker(currentX,currentY-5,field)&&betweenChecker2(currentX,currentY,currentX,currentY-5,field))return true;
+            if(blackKingChecker(currentX,currentY-6,field)&&betweenChecker2(currentX,currentY,currentX,currentY-6,field))return true;
+            if(blackKingChecker(currentX,currentY-7,field)&&betweenChecker2(currentX,currentY,currentX,currentY-7,field))return true;
 
-            if(betweenChecker3(currentX,currentY,currentX+1,currentY,field)&&blackKingChecker(currentX+1,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+2,currentY,field)&&blackKingChecker(currentX+2,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+3,currentY,field)&&blackKingChecker(currentX+3,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+4,currentY,field)&&blackKingChecker(currentX+4,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+5,currentY,field)&&blackKingChecker(currentX+5,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+6,currentY,field)&&blackKingChecker(currentX+6,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+7,currentY,field)&&blackKingChecker(currentX+7,currentY,field))return true;
 
-            if(betweenChecker4(currentX,currentY,currentX-1,currentY,field)&&blackKingChecker(currentX-1,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-2,currentY,field)&&blackKingChecker(currentX-2,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-3,currentY,field)&&blackKingChecker(currentX-3,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-4,currentY,field)&&blackKingChecker(currentX-4,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-5,currentY,field)&&blackKingChecker(currentX-5,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-6,currentY,field)&&blackKingChecker(currentX-6,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-7,currentY,field)&&blackKingChecker(currentX-7,currentY,field))return true;
+            if(blackKingChecker(currentX+1,currentY,field)&&betweenChecker3(currentX,currentY,currentX+1,currentY,field))return true;
+            if(blackKingChecker(currentX+2,currentY,field)&&betweenChecker3(currentX,currentY,currentX+2,currentY,field))return true;
+            if(blackKingChecker(currentX+3,currentY,field)&&betweenChecker3(currentX,currentY,currentX+3,currentY,field))return true;
+            if(blackKingChecker(currentX+4,currentY,field)&&betweenChecker3(currentX,currentY,currentX+4,currentY,field))return true;
+            if(blackKingChecker(currentX+5,currentY,field)&&betweenChecker3(currentX,currentY,currentX+5,currentY,field))return true;
+            if(blackKingChecker(currentX+6,currentY,field)&&betweenChecker3(currentX,currentY,currentX+6,currentY,field))return true;
+            if(blackKingChecker(currentX+7,currentY,field)&&betweenChecker3(currentX,currentY,currentX+7,currentY,field))return true;
+
+            if(blackKingChecker(currentX-1,currentY,field)&&betweenChecker4(currentX,currentY,currentX-1,currentY,field))return true;
+            if(blackKingChecker(currentX-2,currentY,field)&&betweenChecker4(currentX,currentY,currentX-2,currentY,field))return true;
+            if(blackKingChecker(currentX-3,currentY,field)&&betweenChecker4(currentX,currentY,currentX-3,currentY,field))return true;
+            if(blackKingChecker(currentX-4,currentY,field)&&betweenChecker4(currentX,currentY,currentX-4,currentY,field))return true;
+            if(blackKingChecker(currentX-5,currentY,field)&&betweenChecker4(currentX,currentY,currentX-5,currentY,field))return true;
+            if(blackKingChecker(currentX-6,currentY,field)&&betweenChecker4(currentX,currentY,currentX-6,currentY,field))return true;
+            if(blackKingChecker(currentX-7,currentY,field)&&betweenChecker4(currentX,currentY,currentX-7,currentY,field))return true;
 
         }
         if(rook.getColor().equals("black"))
         {
-            if(betweenChecker1(currentX,currentY,currentX,currentY+1,field)&&whiteKingChecker(currentX,currentY+1,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+2,field)&&whiteKingChecker(currentX,currentY+2,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+3,field)&&whiteKingChecker(currentX,currentY+3,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+4,field)&&whiteKingChecker(currentX,currentY+4,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+5,field)&&whiteKingChecker(currentX,currentY+5,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+6,field)&&whiteKingChecker(currentX,currentY+6,field))return true;
-            if(betweenChecker1(currentX,currentY,currentX,currentY+7,field)&&whiteKingChecker(currentX,currentY+7,field))return true;
+            if(whiteKingChecker(currentX,currentY+1,field)&&betweenChecker1(currentX,currentY,currentX,currentY+1,field))return true;
+            if(whiteKingChecker(currentX,currentY+2,field)&&betweenChecker1(currentX,currentY,currentX,currentY+2,field))return true;
+            if(whiteKingChecker(currentX,currentY+3,field)&&betweenChecker1(currentX,currentY,currentX,currentY+3,field))return true;
+            if(whiteKingChecker(currentX,currentY+4,field)&&betweenChecker1(currentX,currentY,currentX,currentY+4,field))return true;
+            if(whiteKingChecker(currentX,currentY+5,field)&&betweenChecker1(currentX,currentY,currentX,currentY+5,field))return true;
+            if(whiteKingChecker(currentX,currentY+6,field)&&betweenChecker1(currentX,currentY,currentX,currentY+6,field))return true;
+            if(whiteKingChecker(currentX,currentY+7,field)&&betweenChecker1(currentX,currentY,currentX,currentY+7,field))return true;
 
-            if(betweenChecker2(currentX,currentY,currentX,currentY-1,field)&&whiteKingChecker(currentX,currentY-1,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-2,field)&&whiteKingChecker(currentX,currentY-2,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-3,field)&&whiteKingChecker(currentX,currentY-3,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-4,field)&&whiteKingChecker(currentX,currentY-4,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-5,field)&&whiteKingChecker(currentX,currentY-5,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-6,field)&&whiteKingChecker(currentX,currentY-6,field))return true;
-            if(betweenChecker2(currentX,currentY,currentX,currentY-7,field)&&whiteKingChecker(currentX,currentY-7,field))return true;
+            if(whiteKingChecker(currentX,currentY-1,field)&&betweenChecker2(currentX,currentY,currentX,currentY-1,field))return true;
+            if(whiteKingChecker(currentX,currentY-2,field)&&betweenChecker2(currentX,currentY,currentX,currentY-2,field))return true;
+            if(whiteKingChecker(currentX,currentY-3,field)&&betweenChecker2(currentX,currentY,currentX,currentY-3,field))return true;
+            if(whiteKingChecker(currentX,currentY-4,field)&&betweenChecker2(currentX,currentY,currentX,currentY-4,field))return true;
+            if(whiteKingChecker(currentX,currentY-5,field)&&betweenChecker2(currentX,currentY,currentX,currentY-5,field))return true;
+            if(whiteKingChecker(currentX,currentY-6,field)&&betweenChecker2(currentX,currentY,currentX,currentY-6,field))return true;
+            if(whiteKingChecker(currentX,currentY-7,field)&&betweenChecker2(currentX,currentY,currentX,currentY-7,field))return true;
 
-            if(betweenChecker3(currentX,currentY,currentX+1,currentY,field)&&whiteKingChecker(currentX+1,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+2,currentY,field)&&whiteKingChecker(currentX+2,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+3,currentY,field)&&whiteKingChecker(currentX+3,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+4,currentY,field)&&whiteKingChecker(currentX+4,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+5,currentY,field)&&whiteKingChecker(currentX+5,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+6,currentY,field)&&whiteKingChecker(currentX+6,currentY,field))return true;
-            if(betweenChecker3(currentX,currentY,currentX+7,currentY,field)&&whiteKingChecker(currentX+7,currentY,field))return true;
+            if(whiteKingChecker(currentX+1,currentY,field)&&betweenChecker3(currentX,currentY,currentX+1,currentY,field))return true;
+            if(whiteKingChecker(currentX+2,currentY,field)&&betweenChecker3(currentX,currentY,currentX+2,currentY,field))return true;
+            if(whiteKingChecker(currentX+3,currentY,field)&&betweenChecker3(currentX,currentY,currentX+3,currentY,field))return true;
+            if(whiteKingChecker(currentX+4,currentY,field)&&betweenChecker3(currentX,currentY,currentX+4,currentY,field))return true;
+            if(whiteKingChecker(currentX+5,currentY,field)&&betweenChecker3(currentX,currentY,currentX+5,currentY,field))return true;
+            if(whiteKingChecker(currentX+6,currentY,field)&&betweenChecker3(currentX,currentY,currentX+6,currentY,field))return true;
+            if(whiteKingChecker(currentX+7,currentY,field)&&betweenChecker3(currentX,currentY,currentX+7,currentY,field))return true;
 
-            if(betweenChecker4(currentX,currentY,currentX-1,currentY,field)&&whiteKingChecker(currentX-1,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-2,currentY,field)&&whiteKingChecker(currentX-2,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-3,currentY,field)&&whiteKingChecker(currentX-3,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-4,currentY,field)&&whiteKingChecker(currentX-4,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-5,currentY,field)&&whiteKingChecker(currentX-5,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-6,currentY,field)&&whiteKingChecker(currentX-6,currentY,field))return true;
-            if(betweenChecker4(currentX,currentY,currentX-7,currentY,field)&&whiteKingChecker(currentX-7,currentY,field))return true;
+            if(whiteKingChecker(currentX-1,currentY,field)&&betweenChecker4(currentX,currentY,currentX-1,currentY,field))return true;
+            if(whiteKingChecker(currentX-2,currentY,field)&&betweenChecker4(currentX,currentY,currentX-2,currentY,field))return true;
+            if(whiteKingChecker(currentX-3,currentY,field)&&betweenChecker4(currentX,currentY,currentX-3,currentY,field))return true;
+            if(whiteKingChecker(currentX-4,currentY,field)&&betweenChecker4(currentX,currentY,currentX-4,currentY,field))return true;
+            if(whiteKingChecker(currentX-5,currentY,field)&&betweenChecker4(currentX,currentY,currentX-5,currentY,field))return true;
+            if(whiteKingChecker(currentX-6,currentY,field)&&betweenChecker4(currentX,currentY,currentX-6,currentY,field))return true;
+            if(whiteKingChecker(currentX-7,currentY,field)&&betweenChecker4(currentX,currentY,currentX-7,currentY,field))return true;
 
 
         }
@@ -214,6 +215,7 @@ public class Rook extends Piece {
 
     private boolean betweenChecker1(int currentX,int currentY,int nextX,int nextY,Place field[][])
     {
+
         for(int i=1;currentY+i<=nextY-1;++i)
         {
             if(field[currentY+i][currentX].getPiece()!=null)return false;
