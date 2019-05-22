@@ -1,152 +1,27 @@
-import java.util.Scanner;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ChessController {
     private NewGraphic view;
     private ChessLogic logic;
 
-    public static void main(String[] args) {
+    public ChessController(){
         ChessLogic logic=new ChessLogic();
-
-        Scanner input=new Scanner(System.in);
-        String name;
-        System.out.println("Enter the name of first(white) player:");
-        name=input.next();
-        Player player1=new Player(name,"white");
-        System.out.println("Enter the name of second(black) player:");
-        name=input.next();
-        Player player2=new Player(name,"black");
-
-
-        //****
-        //*****
-        int blackCheckNumber=0,whiteCheckNumber=0;
-        for(int i=1;;++i)
-        {
-            if(i%2==1)
-            {
-                System.out.println("==========\nwhite turn:\nchoose piece which you want to move: (example:a1)");
-                String choose=input.next();
-                System.out.println("choose place which you want to put: (example:a2)");
-                String put=input.next();
-                if(whiteCheckNumber==1)
-                {
-                    if(chooseAndPut(choose,put,i,logic))
-                    {
-                        System.out.println("it is done.");
-                    }
-                    else
-                    {
-                        System.out.println("again");
-                        i=i-1;
-                        continue;
-                    }
-                    if(logic.isWhiteAtRisk())
-                    {
-                        System.out.println("**********\nGAME IS OVER.\n"+player2.getName()+"(black) WON THE GAME.\n**********");
-                        break;
-                    }
-                    else
-                    {
-                        whiteCheckNumber=0;
-                        continue;
-                    }
-
-
+        Player player1=new Player("white","white");
+        Player player2=new Player("black","black");
+        for (PlaceView[] placeViewList:
+                view.getPlaceViewList())
+            for (PlaceView placeView:
+                    placeViewList) {
+            placeView.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    PlaceView thePlaceView=(PlaceView) (e.getSource());
+                   // logic.getValidMoves()
                 }
-                if(chooseAndPut(choose,put,i,logic))
-                {
-                    System.out.println("it is done.");
-                    if(!logic.getBlackKing().getExistence())
-                    {
-                        System.out.println("**********\nGAME IS OVER.\n"+"BLACK KING IS OUT OF THE GAME.\n"+player1.getName()+"(white) WON THE GAME.\n**********");
-                        break;
-
-                    }
-                    if(logic.isBlackAtRisk())
-                    {
-                        System.out.println("*****************************************BLACK IS AT RISK.(CHECK)*****************************************");
-                        ++blackCheckNumber;
-
-
-                    }
-                    continue;
-                }
-                else
-                {
-                    System.out.println("again");
-                    i=i-1;
-                    continue;
-                }
-
-            }
-            if(i%2==0)
-            {
-                System.out.println("==========\nblack turn:\nchoose piece which you want to move: (example:a1)");
-                String choose=input.next();
-                System.out.println("choose place which you want to put: (example:a2)");
-                String put=input.next();
-                if(blackCheckNumber==1)
-                {
-                    if(chooseAndPut(choose,put,i,logic))
-                    {
-                        System.out.println("it is done.");
-                    }
-                    else
-                    {
-                        System.out.println("again");
-                        i=i-1;
-                        continue;
-                    }
-                    if(logic.isBlackAtRisk())
-                    {
-                        System.out.println("**********\nGAME IS OVER.\n"+player1.getName()+"(white) WON THE GAME.\n**********");
-                        break;
-                    }
-                    else
-                    {
-                        blackCheckNumber=0;
-                        continue;
-                    }
-
-
-                }
-                if(chooseAndPut(choose,put,i,logic))
-                {
-                    System.out.println("it is done.");
-                    if(!logic.getWhiteKing().getExistence())
-                    {
-                        System.out.println("**********\nGAME IS OVER.\n"+"WHITE KING IS OUT OF THE GAME.\n"+player2.getName()+"(black) WON THE GAME.\n**********");
-                        break;
-
-                    }
-                    if(logic.isWhiteAtRisk())
-                    {
-                        System.out.println("*****************************************WHITE IS AT RISK.(CHECK)*****************************************");
-                        ++whiteCheckNumber;
-
-
-                    }
-                    continue;
-                }
-                else
-                {
-                    System.out.println("again");
-                    i=i-1;
-                    continue;
-                }
-
-            }
-
-
+            });
         }
-        System.out.println("============\nGAME FINISHED.\n============");
-
-
-
-
-
     }
-
 
     private static boolean chooseAndPut(String choose,String put,int turn,ChessLogic logic)
     {
@@ -923,4 +798,5 @@ public class ChessController {
 
         return false;
     }
+
 }
