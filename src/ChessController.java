@@ -17,6 +17,7 @@ public class ChessController {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     PlaceView thePlaceView=(PlaceView) (e.getSource());
+                    System.out.println("A");
                    // logic.getValidMoves()
                 }
             });
