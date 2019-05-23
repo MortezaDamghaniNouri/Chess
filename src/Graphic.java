@@ -34,7 +34,7 @@ public class Graphic
            for(int j=1;j<=8;++j)
            {
                temp[i][j]=new JButton();
-               temp[i][j].addActionListener(new MyListener(temp));
+               temp[i][j].addActionListener(new MyListeners(temp));
                if(i%2==1)
                {
 

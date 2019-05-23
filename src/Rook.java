@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Rook extends Piece {
 
     public Rook(boolean existence, int x, int y, String c,int i) {
@@ -252,6 +254,200 @@ public class Rook extends Piece {
 
         }
         return true;
+
+    }
+    public void showPossibleSquares(int x,int y,Place field[][],NewGraphic chessMainGraphic)
+    {
+        if(field[y][x].getPiece().getColor()=="white")
+        {
+            for (int i = 1; y + i <= 7; ++i)
+            {
+                if (isItInRange(x, y + i))
+                {
+                    if(field[y+i][x].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y+i+1][x+1].setBackground(new Color(5,55,5));
+                    }
+                    else
+                    {
+                        if(field[y+i][x].getPiece().getColor()=="white")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y+i+1][x+1].setBackground(new Color(5,55,5));
+                        }
+
+                    }
+
+
+                }
+            }
+            for (int i = 1; y - i >= 0; ++i)
+            {
+                if (isItInRange(x, y - i))
+                {
+                    if(field[y-i][x].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y-i+1][x+1].setBackground(new Color(5,55,5));
+                    }
+                    else
+                    {
+                        if(field[y-i][x].getPiece().getColor()=="white")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y-i+1][x+1].setBackground(new Color(5,55,5));
+                        }
+
+                    }
+
+
+                }
+            }
+            for (int i = 1; x + i <= 7; ++i)
+            {
+                if (isItInRange(x+i, y ))
+                {
+                    if(field[y][x+i].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y+1][x+i+1].setBackground(new Color(5,55,5));
+                    }
+                    else
+                    {
+                        if(field[y][x+i].getPiece().getColor()=="white")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y+1][x+i+1].setBackground(new Color(5,55,5));
+                        }
+
+                    }
+
+
+                }
+            }
+            for (int i = 1; x - i >= 0; ++i)
+            {
+                if (isItInRange(x-i, y ))
+                {
+                    if(field[y][x-i].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(5,55,5));
+                    }
+                    else
+                    {
+                        if(field[y][x-i].getPiece().getColor()=="white")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(5,55,5));
+                        }
+
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        if(field[y][x].getPiece().getColor()=="black")
+        {
+            for (int i = 1; y + i <= 7; ++i)
+            {
+                if (isItInRange(x, y + i))
+                {
+                    if(field[y+i][x].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                    }
+                    else
+                    {
+                        if(field[y+i][x].getPiece().getColor()=="black")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                        }
+
+                    }
+
+
+                }
+            }
+            for (int i = 1; y - i >= 0; ++i)
+            {
+                if (isItInRange(x, y - i))
+                {
+                    if(field[y-i][x].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                    }
+                    else
+                    {
+                        if(field[y-i][x].getPiece().getColor()=="black")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                        }
+
+                    }
+
+
+                }
+            }
+            for (int i = 1; x + i <= 7; ++i)
+            {
+                if (isItInRange(x+i, y ))
+                {
+                    if(field[y][x+i].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                    }
+                    else
+                    {
+                        if(field[y][x+i].getPiece().getColor()=="black")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                        }
+
+                    }
+
+
+                }
+            }
+            for (int i = 1; x - i >= 0; ++i)
+            {
+                if (isItInRange(x-i, y ))
+                {
+                    if(field[y][x-i].getPiece()==null)
+                    {
+                        chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                    }
+                    else
+                    {
+                        if(field[y][x-i].getPiece().getColor()=="black")break;
+                        else
+                        {
+                            chessMainGraphic.getMainButtons()[y+1][x-i+1].setBackground(new Color(8, 107, 8));
+                        }
+
+                    }
+
+
+                }
+            }
+
+
+        }
+
+
+
+
+
+    }
+    public boolean isItInRange(int x,int y)
+    {
+        if(x>=0&&x<=7&&y>=0&&y<=7)
+            return true;
+        else return false;
 
     }
 
