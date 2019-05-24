@@ -288,16 +288,16 @@ public class Test1
          else
             {
                 byte r=1;
-                if((turn%2==1&&choseSquare.getPiece().getColor().equals("white"))||(turn%2==0&&choseSquare.getPiece().getColor().equals("black")))
-                    return choseSquare.getPiece().move(j1,i1,j2,i2,field);
-                else return false;
+                //if((turn%2==1&&choseSquare.getPiece().getColor().equals("white"))||(turn%2==0&&choseSquare.getPiece().getColor().equals("black")))
+                  //  return choseSquare.getPiece().move(j1,i1,j2,i2,field);
+                //else return false;
             }
 
 
 
 
 
-
+        return false;
         }
 
 

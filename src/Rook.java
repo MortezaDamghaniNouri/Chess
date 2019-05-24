@@ -7,8 +7,8 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field) {
-        boolean result = super.move(currentX, currentY, nextX, nextY, field);
+    public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field,NewGraphic chessMainGraphic) {
+        boolean result = super.move(currentX, currentY, nextX, nextY, field,chessMainGraphic);
         if (!result) return false;
 
 
@@ -23,11 +23,15 @@ public class Rook extends Piece {
                         if (field[nextY][nextX].getPiece() == null) {
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+                            chessMainGraphic.getMainButtons()[nextY+1][nextX+1].setIcon(chessMainGraphic.getMainButtons()[currentY+1][currentX+1].getIcon());
+                            chessMainGraphic.getMainButtons()[currentY+1][currentX+1].setIcon(null);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);
@@ -44,12 +48,14 @@ public class Rook extends Piece {
                         if (field[nextY][nextX].getPiece() == null) {
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             int i = 0;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);
@@ -74,12 +80,14 @@ public class Rook extends Piece {
                             int x = 0, o = 0;
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             int m = 1;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);
@@ -98,12 +106,14 @@ public class Rook extends Piece {
                             int b = 0;
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             int w = 0, j = 0;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);

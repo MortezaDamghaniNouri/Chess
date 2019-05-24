@@ -1,25 +1,29 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 
 public class MyListeners implements ActionListener
 {
     private JButton arrayOfButtons[][];
     public static int firstButtonRow,firstButtonColumn,secondButtonRow,secondButtonColumn;
-    private int numberOfClicks=0;
+    private int numberOfClicks;
+    private boolean situation;
     public MyListeners(JButton arrayOfButtons[][])
     {
         this.arrayOfButtons=arrayOfButtons;
-
-
+        numberOfClicks=0;
+        situation=false;
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e)
     {
+        System.out.println("in");
+
         ++numberOfClicks;
+        System.out.println(numberOfClicks);
+        situation=false;
         if(numberOfClicks==1)
         {
             for(int i=1;i<=8;++i)
@@ -29,6 +33,7 @@ public class MyListeners implements ActionListener
 
                     if((e.getSource())==(arrayOfButtons[i][j]))
                     {
+                        System.out.println("first received.");
                         firstButtonRow=i;
                         firstButtonColumn=j;
                         break;
@@ -51,6 +56,7 @@ public class MyListeners implements ActionListener
 
                     if((e.getSource())==(arrayOfButtons[i][j]))
                     {
+                        System.out.println("second received.");
                         secondButtonRow=i;
                         secondButtonColumn=j;
                         break;
@@ -62,6 +68,7 @@ public class MyListeners implements ActionListener
 
 
             numberOfClicks=0;
+            situation=true;
         }
 
 
@@ -70,6 +77,10 @@ public class MyListeners implements ActionListener
     public int getNumberOfClicks()
     {
         return numberOfClicks;
+    }
+    public boolean getSituation()
+    {
+        return situation;
     }
 
     public int getFirstButtonColumn() {

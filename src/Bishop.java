@@ -5,8 +5,8 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public boolean move(int currentX, int currentY, int nextX, int nextY, Place [][] field) {
-        boolean result = super.move(currentX, currentY,nextX,nextY, field);
+    public boolean move(int currentX, int currentY, int nextX, int nextY, Place [][] field,NewGraphic chessMainGraphic) {
+        boolean result = super.move(currentX, currentY,nextX,nextY, field,chessMainGraphic);
         if (!result)
             return false;
         else
@@ -20,8 +20,10 @@ public class Bishop extends Piece {
                 }
                 if(field[nextY][nextX].getPiece()==null)
                 {
+                    byte w=0;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -30,6 +32,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=11;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -50,6 +53,7 @@ public class Bishop extends Piece {
                     int u=10,n=2;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -58,6 +62,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=10,n=12;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -77,6 +82,7 @@ public class Bishop extends Piece {
                     int y=9;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -85,6 +91,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=11,y=1;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -104,6 +111,7 @@ public class Bishop extends Piece {
                     int p=8;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -112,6 +120,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int q=11,i;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -131,6 +140,7 @@ public class Bishop extends Piece {
                     int o=13;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -139,6 +149,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=13;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -158,6 +169,7 @@ public class Bishop extends Piece {
                     int o=14;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -166,6 +178,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=14;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -185,6 +198,7 @@ public class Bishop extends Piece {
                     int o=15;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -193,6 +207,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=15;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -212,6 +227,7 @@ public class Bishop extends Piece {
                     int w=101;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -220,6 +236,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=101;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -239,6 +256,7 @@ public class Bishop extends Piece {
                     int w=102;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -247,6 +265,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=102;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -266,6 +285,7 @@ public class Bishop extends Piece {
                     int w=103;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -274,6 +294,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=103;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -293,6 +314,7 @@ public class Bishop extends Piece {
                     int w=104;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -301,6 +323,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=104;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -320,6 +343,7 @@ public class Bishop extends Piece {
                     int w=105;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -328,6 +352,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=105;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -347,6 +372,7 @@ public class Bishop extends Piece {
                     int w=106;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -355,6 +381,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=106;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -374,6 +401,7 @@ public class Bishop extends Piece {
                     int w=107;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -382,6 +410,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=107;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -401,6 +430,7 @@ public class Bishop extends Piece {
                     int w=11;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -409,6 +439,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=11,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -428,6 +459,7 @@ public class Bishop extends Piece {
                     int w=12;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -436,6 +468,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=12,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -455,6 +488,7 @@ public class Bishop extends Piece {
                     int w=13,q=1;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -463,6 +497,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=13,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -482,6 +517,7 @@ public class Bishop extends Piece {
                     int w=14,d;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -490,6 +526,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=14,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -509,6 +546,7 @@ public class Bishop extends Piece {
                     int w=15,f;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -517,6 +555,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=15,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -536,6 +575,7 @@ public class Bishop extends Piece {
                     int w=16;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -544,6 +584,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=16,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -563,6 +604,7 @@ public class Bishop extends Piece {
                     int w=17;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -571,6 +613,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=17,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -590,6 +633,7 @@ public class Bishop extends Piece {
                     int w=21;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -598,6 +642,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=21,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -617,6 +662,7 @@ public class Bishop extends Piece {
                     int w=22;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -625,6 +671,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=22,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -644,6 +691,7 @@ public class Bishop extends Piece {
                     int w=23;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -652,6 +700,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=23,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -671,6 +720,7 @@ public class Bishop extends Piece {
                     int w=24;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -679,6 +729,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=24,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -698,6 +749,7 @@ public class Bishop extends Piece {
                     int w=25;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -706,6 +758,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=25,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -725,6 +778,7 @@ public class Bishop extends Piece {
                     int w=26;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -733,6 +787,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=26,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -752,6 +807,7 @@ public class Bishop extends Piece {
                     int w=27;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -760,6 +816,7 @@ public class Bishop extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=27,l=0;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);

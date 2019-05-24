@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * it specifies the beads of the chess.
  *
@@ -70,7 +72,7 @@ public abstract class Piece {
      * @param field        ,it is an array of object of place class.
      * @return true or false.
      */
-    public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field) {
+    public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field,NewGraphic chessMainGraphic) {
         if (currentX == x && currentY == y) {
 
             if (nextX > 7 || nextY > 7 || nextX < 0 || nextY < 0)
@@ -103,7 +105,164 @@ public abstract class Piece {
 
     }
     public abstract boolean check(int currentX,int currentY,Place field[][]);
+    public void changeMainButtonsIcons(int currentX,int currentY,int nextX,int nextY,Place field[][],NewGraphic chessMainGraphic)
+    {
+        if(field[nextY][nextX].getPiece()==null)
+        {
+            chessMainGraphic.getMainButtons()[nextY+1][nextX+1].setIcon(chessMainGraphic.getMainButtons()[currentY+1][currentX+1].getIcon());
+            chessMainGraphic.getMainButtons()[currentY+1][currentX+1].setIcon(null);
 
+        }
+        else
+        {
+            chessMainGraphic.getMainButtons()[nextY+1][nextX+1].setIcon(chessMainGraphic.getMainButtons()[currentY+1][currentX+1].getIcon());
+            chessMainGraphic.getMainButtons()[currentY+1][currentX+1].setIcon(null);
+            changeSideButtonsBackgrounds(field[nextY][nextX].getPiece().getIndex(),chessMainGraphic);
+
+
+        }
+
+
+
+
+
+
+    }
+    public void changeSideButtonsBackgrounds(int index,NewGraphic chessMainGraphic)
+    {
+        if(index/100==1)
+        {
+            if(index%100==11)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][1].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==12)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][8].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==21)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][2].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==22)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][7].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==31)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][3].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==32)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][6].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==41)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][1].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==42)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][2].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==43)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][3].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==44)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][4].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==45)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][5].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==46)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][6].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==47)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][7].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==48)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][8].setBackground(new Color(168, 17, 13));
+            }
+
+
+        }
+
+
+        if(index/100==2)
+        {
+            if(index%100==11)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][1].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==12)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][8].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==21)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][2].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==22)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][7].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==31)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][3].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==32)
+            {
+                chessMainGraphic.getWhiteSideButtons()[1][6].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==41)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][1].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==42)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][2].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==43)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][3].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==44)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][4].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==45)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][5].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==46)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][6].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==47)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][7].setBackground(new Color(168, 17, 13));
+            }
+            if(index%100==48)
+            {
+                chessMainGraphic.getWhiteSideButtons()[2][8].setBackground(new Color(168, 17, 13));
+            }
+
+        }
+        if(index==1)
+        {
+            chessMainGraphic.getWhiteSideButtons()[2][4].setBackground(new Color(168, 17, 13));
+        }
+        if(index==2)
+        {
+            chessMainGraphic.getWhiteSideButtons()[1][4].setBackground(new Color(168, 17, 13));
+        }
+
+    }
 
 
 

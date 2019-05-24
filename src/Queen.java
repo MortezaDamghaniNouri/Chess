@@ -5,8 +5,8 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field) {
-        boolean result = super.move(currentX, currentY,nextX,nextY,field);
+    public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field,NewGraphic chessMainGraphic) {
+        boolean result = super.move(currentX, currentY,nextX,nextY,field,chessMainGraphic);
         if (!result)
             return false;
         else
@@ -20,8 +20,10 @@ public class Queen extends Piece {
                 }
                 if(field[nextY][nextX].getPiece()==null)
                 {
+                    byte n=3;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -30,6 +32,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=11,l=11;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -51,6 +54,7 @@ public class Queen extends Piece {
                     int u;double e;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -59,6 +63,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=112,n=112;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -78,6 +83,7 @@ public class Queen extends Piece {
                     int y=9;double e=12;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -86,6 +92,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=11,y=1;double e=12.5;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -105,6 +112,7 @@ public class Queen extends Piece {
                     int p=8;double t=19;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -113,6 +121,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int q=11,i;double y=201;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -132,6 +141,7 @@ public class Queen extends Piece {
                     int o=13;double f=22;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -140,6 +150,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=13;double k=23;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -159,6 +170,7 @@ public class Queen extends Piece {
                     int o=14;double k=24;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -167,6 +179,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=14;double k=24;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -186,6 +199,7 @@ public class Queen extends Piece {
                     int o=15;double k=24;double l=23;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -194,6 +208,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int m=15;double k=23;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -213,6 +228,7 @@ public class Queen extends Piece {
                     int w=101;double k=25;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -221,6 +237,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=101;double k=25;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -240,6 +257,7 @@ public class Queen extends Piece {
                     int w=102;double k=23;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -248,6 +266,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=102;double k=26;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -267,6 +286,7 @@ public class Queen extends Piece {
                     int w=103;double k=26;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -275,6 +295,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=103;double k=27;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -294,6 +315,7 @@ public class Queen extends Piece {
                     int w=104;double k=28;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -302,6 +324,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=104;double k=28;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -321,6 +344,7 @@ public class Queen extends Piece {
                     int w=105;double k=29;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -329,6 +353,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=105;double k=29;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -348,6 +373,7 @@ public class Queen extends Piece {
                     int w=106;double k=29;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -356,6 +382,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=106;double k=30;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -375,6 +402,7 @@ public class Queen extends Piece {
                     int w=107;double k=31;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -383,6 +411,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=107;double k=32;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -402,6 +431,7 @@ public class Queen extends Piece {
                     int w=11;double k=33;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -410,6 +440,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=11,l=0;double k=34;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -429,6 +460,7 @@ public class Queen extends Piece {
                     int w=12;double k=35;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -437,6 +469,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=12,l=0;double k=36;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -456,6 +489,7 @@ public class Queen extends Piece {
                     int w=13,q=1;double k=37;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -464,6 +498,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=13,l=0;double k=38;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -483,6 +518,7 @@ public class Queen extends Piece {
                     int w=14,d;double k=39;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -491,6 +527,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=14,l=0;double k=39;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -510,6 +547,7 @@ public class Queen extends Piece {
                     int w=15,f;double k=40;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -518,6 +556,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=15,l=0;double k=40;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -537,6 +576,7 @@ public class Queen extends Piece {
                     int w=16;double k=41;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -545,6 +585,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=16,l=0;double k=41;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -564,6 +605,7 @@ public class Queen extends Piece {
                     int w=17;double k=41;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -572,6 +614,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=17,l=0;double k=41;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -591,6 +634,7 @@ public class Queen extends Piece {
                     int w=21;double k=41;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -599,6 +643,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=21,l=0;double k=42;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -618,6 +663,7 @@ public class Queen extends Piece {
                     int w=22;double k=42;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -626,6 +672,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=22,l=0;double k=43;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -645,6 +692,7 @@ public class Queen extends Piece {
                     int w=23;double k=43;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -653,6 +701,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=23,l=0;double k=43;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -672,6 +721,7 @@ public class Queen extends Piece {
                     int w=24;double k=44;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -680,6 +730,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=24,l=0;double k=44;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -699,6 +750,7 @@ public class Queen extends Piece {
                     int w=25;double k=44;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -707,6 +759,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=25,l=0;double k=45;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -726,6 +779,7 @@ public class Queen extends Piece {
                     int w=26;double k=45;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -734,6 +788,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=26,l=0;double k=46;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -753,6 +808,7 @@ public class Queen extends Piece {
                     int w=27;double k=23;
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
                 }
@@ -761,6 +817,7 @@ public class Queen extends Piece {
                     if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                     int p=27,l=0;double k=47;
                     field[nextY][nextX].getPiece().setExistence(false);
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
                     field[nextY][nextX].getPiece().setY(nextY);
@@ -776,14 +833,17 @@ public class Queen extends Piece {
 
                         }
                         if (field[nextY][nextX].getPiece() == null) {
+                            byte u=8;
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
                             byte u=1;
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);
@@ -800,6 +860,7 @@ public class Queen extends Piece {
                         if (field[nextY][nextX].getPiece() == null) {
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
@@ -807,6 +868,7 @@ public class Queen extends Piece {
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             int i = 0;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);
@@ -831,6 +893,7 @@ public class Queen extends Piece {
                             byte u=1;
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
@@ -838,6 +901,7 @@ public class Queen extends Piece {
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             int m = 1;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);
@@ -856,6 +920,7 @@ public class Queen extends Piece {
                             byte o=2;
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].getPiece().setY(nextY);
                             field[nextY][nextX].getPiece().setX(nextX);
                         } else {
@@ -863,6 +928,7 @@ public class Queen extends Piece {
                             if(field[nextY][nextX].getPiece().getColor().equals(field[currentY][currentX].getPiece().getColor()))return false;
                             int w = 0, j = 0;
                             field[nextY][nextX].getPiece().setExistence(false);
+                            changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                             field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                             field[currentY][currentX].setPiece(null);
                             field[nextY][nextX].getPiece().setY(nextY);
