@@ -7,6 +7,7 @@ public class NewGraphic {
     private JFrame mainFrame;
     private JButton butt1, butt2_1, butt2_2, butt2_3, mainButtons[][], blackSideButtons[][], whiteSideButtons[][];
     private JPanel panel1, panel2;
+    JLabel label2_2;
     MyListeners mainListener;
 
     public NewGraphic() {
@@ -17,6 +18,9 @@ public class NewGraphic {
         butt1 = new JButton("CENTER");
         butt2_1 = new JButton("A");
         butt2_2 = new JButton("white");
+        butt2_2.setPreferredSize(new Dimension(400, 220));
+        //label2_2=new JLabel("Turn:white");
+        //label2_2.setBorder(200,50);
         butt2_3 = new JButton("C");
         //***
         panel1 = new JPanel();
@@ -110,7 +114,7 @@ public class NewGraphic {
             for (int j = 1; j <= 8; ++j) {
                 temp = new JButton();
                 temp.setBackground(new Color(8, 92, 6));
-                blackSideButtons[i][j]=temp;
+                blackSideButtons[i][j] = temp;
                 panel2_1.add(temp);
 
             }
@@ -128,7 +132,7 @@ public class NewGraphic {
             for (int j = 1; j <= 8; ++j) {
                 temp = new JButton();
                 temp.setBackground(new Color(8, 92, 6));
-                whiteSideButtons[i][j]=temp;
+                whiteSideButtons[i][j] = temp;
                 panel2_3.add(temp);
 
             }
@@ -175,11 +179,6 @@ public class NewGraphic {
         blackSideButtons[1][5].setIcon(newBlackKing);
 
 
-
-
-
-
-
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);
     }
@@ -201,6 +200,10 @@ public class NewGraphic {
         return blackSideButtons;
     }
 
+    public JButton getButt2_2() {
+        return butt2_2;
+    }
+
     public JButton[][] getWhiteSideButtons() {
 
         return whiteSideButtons;
@@ -213,6 +216,7 @@ public class NewGraphic {
         output = new ImageIcon(newimg);
         return output;
     }
+
     public ImageIcon newSetSize(String name) {
         ImageIcon output = new ImageIcon(name);
         Image newImage = output.getImage();
@@ -220,10 +224,6 @@ public class NewGraphic {
         output = new ImageIcon(newimg);
         return output;
     }
-
-
-
-
 
 
 }

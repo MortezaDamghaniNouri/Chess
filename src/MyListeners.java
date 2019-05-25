@@ -73,10 +73,18 @@ public class MyListeners implements ActionListener
 
 
 
+
+
+
+
     }
     public int getNumberOfClicks()
     {
         return numberOfClicks;
+    }
+    public void setSituation(boolean input)
+    {
+        situation=input;
     }
     public boolean getSituation()
     {
@@ -88,7 +96,7 @@ public class MyListeners implements ActionListener
     }
 
     public int getFirstButtonRow() {
-        return firstButtonRow-1;
+        return 8-firstButtonRow;
     }
 
     public int getSecondButtonColumn() {
@@ -96,7 +104,7 @@ public class MyListeners implements ActionListener
     }
 
     public int getSecondButtonRow() {
-        return secondButtonRow-1;
+        return 8-secondButtonRow;
     }
 
 

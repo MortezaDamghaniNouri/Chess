@@ -1,9 +1,27 @@
+/**
+ * Inherits Piece class and simulates king piece in chess.
+ * @author MORTEZA DAMGHANI NOURI.
+ * @version Version1.
+ *
+ *
+ *
+ */
+
 public class King extends Piece {
 
     public King(boolean existence, int x, int y,String c,int i) {
         super(existence, x, y,c,i);
     }
 
+    /**
+     * @param currentX         the current place(x) of the piece.
+     * @param currentY         the current place(y)of the piece.
+     * @param nextX,           the place(x) of the bead we want it to go.
+     * @param nextY,the        the place(y) of the bead we want it to go.
+     * @param field            it is an array of objects of place class which simulates the field of chess.
+     * @param chessMainGraphic it is an object of graphical interface of the game.
+     * @return it returns a boolean variable which shows that if the movement was done or that was invalid.
+     */
     @Override
     public boolean move(int currentX, int currentY, int nextX, int nextY, Place [][] field,NewGraphic chessMainGraphic) {
         boolean result = super.move(currentX, currentY, nextX, nextY, field,chessMainGraphic);
@@ -17,9 +35,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=111;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -45,9 +64,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=112;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -73,9 +93,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=113;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -101,9 +122,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=114;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -129,9 +151,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=115;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -157,9 +180,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=116;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -185,9 +209,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=117;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -213,9 +238,10 @@ public class King extends Piece {
                 if(field[nextY][nextX].getPiece()==null)
                 {
                     int w=118;
+                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
                     field[nextY][nextX].setPiece(field[currentY][currentX].getPiece());
                     field[currentY][currentX].setPiece(null);
-                    changeMainButtonsIcons(currentX,currentY,nextX,nextY,field,chessMainGraphic);
+
                     field[nextY][nextX].getPiece().setY(nextY);
                     field[nextY][nextX].getPiece().setX(nextX);
 
@@ -243,6 +269,14 @@ public class King extends Piece {
 
        return false;
     }
+
+    /**
+     * it checks if the current piece checks the king of the other player or not.
+     * @param currentX  the current place(x) of the piece.
+     * @param currentY  the current place(x) of the piece.
+     * @param field  it is an array of objects of place class which simulates the field of chess.
+     * @return  it is a boolean variable which shows that the piece checks the king or not.
+     */
 
 
     public boolean check(int currentX,int currentY,Place field[][])
