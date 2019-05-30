@@ -7,8 +7,8 @@ public class NewGraphic {
     private JFrame mainFrame;
     private JButton butt1, butt2_1, butt2_2, butt2_3, mainButtons[][], blackSideButtons[][], whiteSideButtons[][];
     private JPanel panel1, panel2;
-    JLabel label2_2;
-    MyListeners mainListener;
+    private JLabel label2_2;
+    private MyListeners mainListener;
 
     public NewGraphic() {
         mainFrame = new JFrame("CHESS");
@@ -183,32 +183,70 @@ public class NewGraphic {
         mainFrame.setVisible(true);
     }
 
-
+    /**
+     * it sets that which player has to move.
+     *
+     * @param color the color of the player who has to move.
+     */
     public void setTurn(String color) {
         butt2_2.setText(color);
     }
 
+    /**
+     * returns mainListener of the game.
+     *
+     * @return mainListener.
+     */
     public MyListeners getMainListener() {
         return mainListener;
     }
+
+    /**
+     * returns mainButtons of the game.
+     *
+     * @return mainListener.
+     */
 
     public JButton[][] getMainButtons() {
         return mainButtons;
     }
 
+    /**
+     * returns blackSideButtons of the game.
+     *
+     * @return blackSideButtons.
+     */
+
     public JButton[][] getBlackSideButtons() {
         return blackSideButtons;
     }
+
+    /**
+     * returns the data on butt2_2 of the game.
+     *
+     * @return butt2_2.
+     */
 
     public JButton getButt2_2() {
         return butt2_2;
     }
 
+    /**
+     * returns whiteButton of the game.
+     *
+     * @return whiteButton.
+     */
     public JButton[][] getWhiteSideButtons() {
 
         return whiteSideButtons;
     }
 
+    /**
+     * it sets a suitable size for icons of the pieces.
+     *
+     * @param name it is the name of the image in the directory of the project.
+     * @return it is an object of ImageIcon class which has suitable size to use in graphic.
+     */
     public ImageIcon setSize(String name) {
         ImageIcon output = new ImageIcon(name);
         Image newImage = output.getImage();
@@ -217,6 +255,12 @@ public class NewGraphic {
         return output;
     }
 
+    /**
+     * it sets a suitable size for icons of the pieces.
+     *
+     * @param name it is the name of the image in the directory of the project.
+     * @return it is an object of ImageIcon class which has suitable size to use in graphic.
+     */
     public ImageIcon newSetSize(String name) {
         ImageIcon output = new ImageIcon(name);
         Image newImage = output.getImage();

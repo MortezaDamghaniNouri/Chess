@@ -1,3 +1,10 @@
+/**
+ * it handles the logic part of chess.
+ *
+ * @author MORTEZA DAMGHANI NOURI (9625801).
+ * @version 1.
+ */
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -861,7 +868,7 @@ public class Main {
     /**
      * it checks if black king piece is at risk or not.
      *
-     * @param whitePieces an aaray list of all white pieces in the game.
+     * @param whitePieces an array list of all white pieces in the game.
      * @param field       the field of the game.
      * @return it returns a boolean variable which show that if the black king is at risk or not.
      */

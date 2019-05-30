@@ -394,21 +394,11 @@ public class GraphicAndLogicInterface {
 
     }
 
-    public void setFirstButtonRow(int n) {
-        firstButtonRow = n;
-    }
-
-    public void setFirstButtonColumn(int n) {
-        firstButtonColumn = n;
-    }
-
-    public void setSecondButtonColumn(int n) {
-        secondButtonColumn = n;
-    }
-
-    public void setSecondButtonRow(int n) {
-        secondButtonRow = n;
-    }
+    /**
+     * it allocates received values of MyListeners class to related fields.
+     *
+     * @param input an object of MyListener class.
+     */
 
     public static void setChooseAndPutSquares(MyListeners input) {
         firstButtonRow = input.getFirstButtonRow();
@@ -416,6 +406,17 @@ public class GraphicAndLogicInterface {
         secondButtonRow = input.getSecondButtonRow();
         secondButtonColumn = input.getSecondButtonColumn();
     }
+
+    /**
+     * it shows possible squares for a piece to move.
+     *
+     * @param x                place(x) of the piece.
+     * @param y                place(x) of the piece.
+     * @param field            the field of the game.
+     * @param chessMainGraphic an object of NewGraphic class which has data about graphical interface.
+     * @param turn             an integer which indicates which player have to move.
+     * @return it is a boolean variable which indicates the work is done or not.
+     */
 
     public static boolean possibleSquaresShower(int x, int y, Place field[][], NewGraphic chessMainGraphic, int turn) {
         Place choseSquare = field[y][x];
@@ -434,6 +435,18 @@ public class GraphicAndLogicInterface {
 
     }
 
+    /**
+     * it changes the place of pieces on the field of the game.
+     *
+     * @param firstButtonColumn  the column of first clicked button.
+     * @param firstButtonRow     the row of first clicked button.
+     * @param secondButtonColumn the column of second clicked button.
+     * @param secondButtonRow    the row of second clicked button.
+     * @param field              the field of the game.
+     * @param chessMainGraphic   an object of NewGraphic class which has data about graphical interface.
+     * @param turn               an integer which indicates which player have to move.
+     * @return it is a boolean variable which indicates the work is done or not.
+     */
     public static boolean newChooseAndPut(int firstButtonColumn, int firstButtonRow, int secondButtonColumn, int secondButtonRow, Place field[][],
                                           NewGraphic chessMainGraphic, int turn) {
         Place choseSquare = field[firstButtonRow][firstButtonColumn];
@@ -448,6 +461,10 @@ public class GraphicAndLogicInterface {
 
 
     }
+
+    /**
+     * it saves the data on consol for some seconds.
+     */
 
     public static void pause() {
         int m = 0;

@@ -5,6 +5,16 @@ public class Pawn extends Piece {
     }
 
     @Override
+    /**
+     *
+     * @param currentX,    the place(x).
+     * @param currentY,the place(y) of the piece.
+     * @param nextX,       the place(x) of the piece we want it to go.
+     * @param nextY,the    the place(y) of the piece we want it to go.
+     * @param field        it is an array of object of place class which simulates the field of the chess game.
+     * @param chessMainGraphic it is an object of NewGraphic class.
+     * @return it is a boolean variable which shows that the movement was successful or not.
+     */
     public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field, NewGraphic chessMainGraphic) {
         boolean result = super.move(currentX, currentY, nextX, nextY, field, chessMainGraphic);
         if (!result)
@@ -262,7 +272,14 @@ public class Pawn extends Piece {
 
         return false;
     }
-
+    /**
+     * it checks if the current piece checks the king of the other player or not.
+     *
+     * @param currentX the current place(x) of the piece.
+     * @param currentY the current place(x) of the piece.
+     * @param field    it is an array of objects of place class which simulates the field of chess.
+     * @return it is a boolean variable which shows that the piece checks the king or not.
+     */
 
     public boolean check(int currentX, int currentY, Place field[][]) {
         Piece pawn = field[currentY][currentX].getPiece();
@@ -285,6 +302,13 @@ public class Pawn extends Piece {
 
 
     }
+
+    /**
+     * it consider if entered x and entered y are valid or not.
+     * @param x the x of the piece.
+     * @param y the x of the piece.
+     * @return it is a boolean variable which indicates x and y are valid or not.
+     */
 
     private boolean squareChecker(int x, int y) {
         if (x >= 0 && x <= 7 && y >= 0 && y <= 7) return true;

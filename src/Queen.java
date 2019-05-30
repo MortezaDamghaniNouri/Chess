@@ -1,5 +1,5 @@
 /**
- * Inherits Piece class and simulates king piece in chess.
+ * Inherits Piece class and simulates queen piece in chess.
  *
  * @author MORTEZA DAMGHANI NOURI.
  * @version version1.
@@ -1211,6 +1211,16 @@ public class Queen extends Piece {
         return false;
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
 
     private boolean betweenChecker11(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentY + i <= nextY - 1; ++i) {
@@ -1221,6 +1231,16 @@ public class Queen extends Piece {
 
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
     private boolean betweenChecker12(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentY - i >= nextY + 1; ++i) {
             if (field[currentY - i][currentX].getPiece() != null) return false;
@@ -1229,6 +1249,17 @@ public class Queen extends Piece {
         return true;
 
     }
+
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
 
     private boolean betweenChecker13(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX + i <= nextX - 1; ++i) {
@@ -1239,6 +1270,17 @@ public class Queen extends Piece {
 
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
+
     private boolean betweenChecker14(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX - i >= nextX + 1; ++i) {
             if (field[currentY][currentX - i].getPiece() != null) return false;
@@ -1248,6 +1290,16 @@ public class Queen extends Piece {
 
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
     private boolean betweenChecker21(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX + i <= nextX - 1 && currentY + i <= nextY - 1; ++i) {
             if (field[currentY + i][currentX + i].getPiece() != null) return false;
@@ -1257,6 +1309,16 @@ public class Queen extends Piece {
 
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
     private boolean betweenChecker22(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX - i >= nextX + 1 && currentY - i >= nextY + 1; ++i) {
             if (field[currentY - i][currentX - i].getPiece() != null) return false;
@@ -1266,6 +1328,16 @@ public class Queen extends Piece {
 
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
     private boolean betweenChecker23(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX + i <= nextX - 1 && currentY - i >= nextY + 1; ++i) {
             if (field[currentY - i][currentX + i].getPiece() != null) return false;
@@ -1274,6 +1346,17 @@ public class Queen extends Piece {
         return true;
 
     }
+
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
 
     private boolean betweenChecker24(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX - i >= nextX + 1 && currentY + i <= nextY - 1; ++i) {

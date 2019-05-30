@@ -1,8 +1,26 @@
+/**
+ * it extends Piece class and simulates bishop piece in chess.
+ *
+ * @author MORTEZA DAMGHANI NOURI.
+ * @version 1.
+ */
+
 public class Bishop extends Piece {
 
     public Bishop(boolean existence, int x, int y, String c, int i) {
         super(existence, x, y, c, i);
     }
+
+    /**
+     * @param currentX,        the place(x).
+     * @param currentY,the     place(y) of the piece.
+     * @param nextX,           the place(x) of the piece we want it to go.
+     * @param nextY,the        the place(y) of the piece we want it to go.
+     * @param field            it is an array of object of place class which simulates the field of the chess game.
+     * @param chessMainGraphic it is an object of NewGraphic class.
+     * @return it is a boolean variable which shows that the movement was successful or not.
+     */
+
 
     @Override
     public boolean move(int currentX, int currentY, int nextX, int nextY, Place[][] field, NewGraphic chessMainGraphic) {
@@ -746,6 +764,16 @@ public class Bishop extends Piece {
         return false;
     }
 
+    /**
+     * it checks if the current piece checks the king of the other player or not.
+     *
+     * @param currentX the current place(x) of the piece.
+     * @param currentY the current place(x) of the piece.
+     * @param field    it is an array of objects of place class which simulates the field of chess.
+     * @return it is a boolean variable which shows that the piece checks the king or not.
+     */
+
+
     public boolean check(int currentX, int currentY, Place field[][]) {
         Piece bishop = field[currentY][currentX].getPiece();
         if (bishop.getColor().equals("white")) {
@@ -876,6 +904,17 @@ public class Bishop extends Piece {
         return false;
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
+
     private boolean betweenChecker1(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX + i <= nextX - 1 && currentY + i <= nextY - 1; ++i) {
             if (field[currentY + i][currentX + i].getPiece() != null) return false;
@@ -885,6 +924,16 @@ public class Bishop extends Piece {
 
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
     private boolean betweenChecker2(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX - i >= nextX + 1 && currentY - i >= nextY + 1; ++i) {
             if (field[currentY - i][currentX - i].getPiece() != null) return false;
@@ -893,6 +942,17 @@ public class Bishop extends Piece {
         return true;
 
     }
+
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
 
     private boolean betweenChecker3(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX + i <= nextX - 1 && currentY - i >= nextY + 1; ++i) {
@@ -903,6 +963,16 @@ public class Bishop extends Piece {
 
     }
 
+    /**
+     * it checks that if there is piece between two entered squares or not.
+     *
+     * @param currentX current x of the piece.
+     * @param currentY current y of the piece.
+     * @param nextX    next x of the piece.
+     * @param nextY    next y of the piece.
+     * @param field    the field of the game.
+     * @return it is a boolean variable which indicates if there is a piece between two entered squares or not.
+     */
     private boolean betweenChecker4(int currentX, int currentY, int nextX, int nextY, Place field[][]) {
         for (int i = 1; currentX - i >= nextX + 1 && currentY + i <= nextY - 1; ++i) {
             if (field[currentY + i][currentX - i].getPiece() != null) return false;
