@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 public class MyListeners implements ActionListener {
     private JButton arrayOfButtons[][];
     /**
-     * @param firstButtonRow    it is an int variable which indicates the row of the first clicked button in graphical array.
-     * @param firstButtonColumn    it is an int variable which indicates the column of the first clicked button in graphical array.
-     * @param secondButtonRow    it is an int variable which indicates the row of the second clicked button in graphical array.
-     * @param secondButtonColumn    it is an int variable which indicates the column of the second clicked button in graphical array.
+     *  firstButtonRow    it is an int variable which indicates the row of the first clicked button in graphical array.
+     *  firstButtonColumn    it is an int variable which indicates the column of the first clicked button in graphical array.
+     *  secondButtonRow    it is an int variable which indicates the row of the second clicked button in graphical array.
+     *  secondButtonColumn    it is an int variable which indicates the column of the second clicked button in graphical array.
      */
     public static int firstButtonRow, firstButtonColumn, secondButtonRow, secondButtonColumn;
     private int numberOfClicks;

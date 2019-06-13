@@ -129,7 +129,6 @@ public abstract class Piece {
      * @param nextY,the        the place(y) of the bead we want it to go.
      * @param field            it is an array of objects of place class which simulates the field of chess.
      * @param chessMainGraphic it is an object of graphical interface of the game.
-     * @return it returns a boolean variable which shows that if the movement was done or that was invalid.
      */
 
     public void changeMainButtonsIcons(int currentX, int currentY, int nextX, int nextY, Place field[][], NewGraphic chessMainGraphic) {
